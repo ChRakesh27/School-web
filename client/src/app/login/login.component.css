@@ -1,0 +1,9 @@
+
+
+.form-control{
+    background: #0000;
+    color: #fff;
+    border-style: hidden;
+    font-size: 30px;
+    border-bottom-style:solid;
+}

@@ -1,0 +1,33 @@
+<div class="background-radial-gradient overflow-hidden">
+
+    <div *ngIf="password=='' && id==''; else principal">
+        <app-login (login)="check($event)"></app-login>
+    </div>
+
+    <ng-template #principal>
+        <div *ngIf="isvalid=='Principal'">
+            <div class="principal">
+                <h1>Principal</h1>
+                <a routerLink="show" class="btn btn-primary">Show</a>
+                &nbsp;
+                <a routerLink="sign" class="btn btn-success">Create</a>
+                &nbsp;
+                <a href='' class="btn btn-primary btn-lg btn-rounded gradient-custom text-body px-5">LoginOut</a>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <div *ngIf="isvalid=='Student'">
+
+            <app-student [id]="getId()"></app-student>
+        </div>
+
+        <div *ngIf="isvalid=='Teacher'">
+            <app-teacher [user]="getId()"></app-teacher>
+        </div>
+
+        <div *ngIf="isvalid=='error'">
+            <app-error></app-error>
+        </div>
+    </ng-template>
+
+</div>
